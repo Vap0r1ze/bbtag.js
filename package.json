@@ -1,0 +1,24 @@
+{
+  "name": "bbtag",
+  "version": "1.0.0",
+  "description": "A javascript library for creating bbtags",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vap0r1ze/bbtag.js.git"
+  },
+  "keywords": [
+    "a",
+    "b",
+    "c"
+  ],
+  "author": "Vap0r1ze",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vap0r1ze/bbtag.js/issues"
+  },
+  "homepage": "https://github.com/Vap0r1ze/bbtag.js#readme"
+}
