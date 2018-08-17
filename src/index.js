@@ -1,6 +1,6 @@
-const createTag = require('./Tag')
+const createTag = require('./Tag').default
 
-const standardTags = [
+const tags = [
   'argsarray', 'argslength', 'commandname', 'iscc',
   'lb', 'rb', 'semi', 'zws',
   'abs', 'args', 'base', 'base64decode', 'base64encode',
@@ -27,8 +27,6 @@ const standardTags = [
   'usermention', 'username', 'usernick', 'usersetnick', 'userstatus', 'usertimezone', 'webhook'
 ]
 
-// complex tags: bool, if, switch
-
 const e = module.exports = {
   s: {},
   compile (f, args = []) {
@@ -36,7 +34,7 @@ const e = module.exports = {
     Object.keys(ctx.s).forEach(snippet => {
       ctx.createSnippet(snippet, ctx.s[snippet]._f)
     })
-    f.bind(ctx)(...args)
+    f.bind(ctx)(...(args || [ this ]))
     let p = ctx._d.map(d => {
       if (typeof d === 'string')
         return d.replace(/[{};\n]/g, c => {
@@ -73,7 +71,7 @@ const e = module.exports = {
   }
 }
 
-standardTags.forEach(t => {
+tags.forEach(t => {
   e[t] = function (...args) {
     let tag = createTag.bind(this)(t, args)
     if (this._d)
